@@ -1,10 +1,12 @@
 {
     "manifest_version": 3,
     "name": "Tribunal Online",
-    "description": "Sinaliza os usuários do Facebook que tem um histórico de renúncia a lógica",
+    "description": "Sinaliza usuários que renunciaram a lógica",
     "version": "0.1",
     "permissions": ["activeTab"],
-
+    "icons": { 
+        "48": "icons/censorship.png"
+    },
     "content_scripts": [
         {
             "matches": ["<all_urls>"],
