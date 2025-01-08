@@ -21,18 +21,33 @@ document.addEventListener("keydown", async function(event) {
                 .filter(Boolean); // Remove valores inválidos
 
             console.log("IDs obtidos da planilha:", valoresUserID);
-
-            // Pega os elementos da página e verifica se o userID está na lista fornecida
+            // Verifica os perfis das publicações
             const profileNames = document.querySelectorAll("[data-ad-rendering-role='profile_name']");
+            for (let i = 0; i < profileNames.length; i++) {
+                console.log("O numero do indice profile é "+i)
+                // Pega o ID do usuário infrator
+                var userIDMatchProfile = profileNames[i].children[0].children[0].children[0].children[0].href.match(/user\/(\d+)\//);
+
+                if(valoresUserID.some(id => userIDMatchProfile.includes(id))){
+                    console.log("APARECEU PROFILE!!!")
+                    try{
+                        profileNames[i].children[0].children[0].children[0].children[0].children[0].children[0].style.color = "red"
+                    } catch{
+                        console.log("Cor do profile deu erro")
+                    }
+                }else{console.log("Os valores profile não aparecem "+i)}  
+            };
+
+            // Verifica os perfis dos commits das publicações
             const commitsNames = document.querySelectorAll("[role='article']");
             for (let i = 0; i < commitsNames.length; i++) {
-                console.log("O numero do indice é "+i)
+                console.log("O numero do indice commits é "+i)
                 // Pega o ID do usuário infrator
                 try{
                     var userIDMatchCommit3 = commitsNames[i + 1].children[1].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].href.match(/user\/(\d+)\//);
 
                     if(valoresUserID.some(id => userIDMatchCommit3.includes(id))){
-                        console.log("Apareceram commit 3")
+                        console.log("APARECEU COMMIT!!!")
                         try{
                             commitsNames[i+1].children[1].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].style.color = "red";
                         } catch{
@@ -44,7 +59,7 @@ document.addEventListener("keydown", async function(event) {
                     try{
                         var userIDMatchCommit2 = commitsNames[i + 1].children[1].children[0].children[0].children[0].children[0].children[0].children[0].children[0].href.match(/user\/(\d+)\//);
                         if(valoresUserID.some(id => userIDMatchCommit2.includes(id))){
-                            console.log("Apareceram commit 2")
+                            console.log("APARECEU COMMIT 2")
                             try{
                                 commitsNames[i+1].children[1].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].style.color = "red";
                             } catch{
@@ -55,9 +70,9 @@ document.addEventListener("keydown", async function(event) {
                         console.log("Erro commit 2")
                     }
                 }
-            }
+            };
         } catch (error) {
             console.error("Erro ao acessar ou processar a planilha:", error);
-        }
-    }
+        };
+    };
 });
