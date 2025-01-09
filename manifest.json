@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
-    "name": "Tribunal Online da Economia",
-    "description": "Desconhecer um asssunto é normal. Ser arrogante estando errado, não.",
+    "name": "Tribunal da Ação Humana",
+    "description": "Desconhecer um asssunto é aceitável. Ser arrogante estando errado, não.",
     "version": "0.1",
     "permissions": ["activeTab"],
     "icons": { 
