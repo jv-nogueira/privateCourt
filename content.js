@@ -1,5 +1,4 @@
 async function startFlags() { 
-        console.log("F2 pressionado, buscando IDs da planilha...");
 
         // URL da planilha CSV
         const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR9v7ggaDK4SnnG7PqCIYV7vlroNWLgIW8MdOkz_PBCpnpJmBmM_dMDk1KqDIK982cK9EsdajNUoCwG/pub?gid=0&single=true&output=csv";
@@ -101,28 +100,21 @@ let updateCounter = 0;
 
 // Função para registrar alterações no feed
 function observeFeed() {
-  // Seleciona o elemento do feed (ajuste o seletor conforme necessário)
-  const feedElement = document.querySelector('[role="feed"]');
+    // Seleciona o elemento do feed (ajuste o seletor conforme necessário)
+    const feedElement = document.querySelector('*');
 
-  if (!feedElement) {
-    console.warn('Feed não encontrado. Certifique-se de que o seletor está correto.');
-    return;
-  }
+    // Configura o MutationObserver para monitorar alterações no feed
+    const observer = new MutationObserver(() => {
+        updateCounter++;
+        startFlags()
+    });
 
-  // Configura o MutationObserver para monitorar alterações no feed
-  const observer = new MutationObserver(() => {
-    updateCounter++;
-    startFlags()
-    console.log(`Atualizações do feed detectadas: ${updateCounter}`);
-  });
-
-  // Inicia a observação de alterações no feed
-  observer.observe(feedElement, {
-    childList: true, // Observa a adição/remoção de elementos
-    subtree: true,   // Observa alterações em elementos descendentes
-  });
-
-  console.log('Observando atualizações no feed...');
+    // Inicia a observação de alterações no feed
+    observer.observe(feedElement, {
+        childList: true, // Observa a adição/remoção de elementos
+        subtree: true,   // Observa alterações em elementos descendentes
+    });
+    console.log('Observando atualizações na página...');
 }
 
 // Aguarda o carregamento completo da página para iniciar o observer
