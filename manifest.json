@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Tribunal da Ação Humana",
+    "name": "Tribunal do Fórum",
     "description": "Desconhecer um asssunto é aceitável. Ser arrogante estando errado, não.",
     "version": "0.1",
     "permissions": ["activeTab"],

@@ -1,12 +1,12 @@
-# Tribunal da Ação Humana
+# Tribunal do Fórum
 
-**Tribunal da Ação Humana** é uma extensão voltada para abordar questões de lógica aplicadas à economia, filosofia, ciência política e direito. O projeto busca sinalizar em vermelho o nome dos usuários do Facebook que renunciaram a lógica. O banco de dados tem atualização recorrente conforme feedback.
+**Tribunal do Fórum** é uma extensão que sinaliza em vermelho o nome dos usuários do Facebook que fazem bait, troll e spam. O banco de dados tem atualização conforme feedback.
 
 ## Funcionalidades
 
-- Aumento da escala de contribuições conscientes aos debates
-- Redução de spam, troll e flood
-- Auxilio para ignorar ou ter paciência com usuários
+- Aumenta a escala de contribuições conscientes aos debates
+- Reduz a poluição visual no feed
+- Auxilia ignorar ou ter paciência com usuários
 
 ## Instalação
 
